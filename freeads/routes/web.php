@@ -23,3 +23,14 @@ Route::put('/profile', [ProfileController::class, 'update'])->name('profile.upda
 
 // Rutas de los anuncios
 Route::resource('annonces', AnnonceController::class);
+
+Route::get('/recommended', [AnnonceController::class, 'recommended'])->name('annonces.recommended');
+
+// Rutas de mensajería
+Route::get('/messages', [App\Http\Controllers\MessageController::class, 'index'])->name('messages.index');
+Route::get('/messages/sent', [App\Http\Controllers\MessageController::class, 'sent'])->name('messages.sent');
+Route::get('/messages/create', [App\Http\Controllers\MessageController::class, 'create'])->name('messages.create');
+Route::post('/messages', [App\Http\Controllers\MessageController::class, 'store'])->name('messages.store');
+Route::get('/messages/{message}', [App\Http\Controllers\MessageController::class, 'show'])->name('messages.show');
+Route::delete('/messages/{message}', [App\Http\Controllers\MessageController::class, 'destroy'])->name('messages.destroy');
+Route::get('/contact-user/{userId}', [App\Http\Controllers\MessageController::class, 'contactUser'])->name('contact.user');

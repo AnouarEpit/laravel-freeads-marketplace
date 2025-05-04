@@ -87,7 +87,7 @@
                         Contacter le vendeur
                     </div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-success w-100">Envoyer un message</a>
+                        <a href="{{ route('contact.user', $annonce->user_id) }}" class="btn btn-success w-100">Envoyer un message</a>
                     </div>
                 </div>
             @endif

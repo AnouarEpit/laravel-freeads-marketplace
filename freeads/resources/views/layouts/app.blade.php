@@ -37,6 +37,17 @@
                         </li>
                         @auth
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('annonces.recommended') }}">{{ __('Recommandations') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('messages.index') }}">
+                                {{ __('Messages') }}
+                                @if (Auth::user()->unreadMessages()->count() > 0)
+                                    <span class="badge bg-danger">{{ Auth::user()->unreadMessages()->count() }}</span>
+                                @endif
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('annonces.create') }}">{{ __('Créer une annonce') }}</a>
                         </li>
                         @endauth

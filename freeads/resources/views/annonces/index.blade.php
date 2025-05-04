@@ -11,6 +11,46 @@
         </div>
     </div>
     
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    Rechercher des annonces
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('annonces.index') }}" method="GET">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="search" class="form-label">Recherche</label>
+                                <input type="text" class="form-control" id="search" name="search" placeholder="Titre ou description" value="{{ request('search') }}">
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <label for="min_price" class="form-label">Prix min</label>
+                                <input type="number" class="form-control" id="min_price" name="min_price" placeholder="Min" value="{{ request('min_price') }}">
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <label for="max_price" class="form-label">Prix max</label>
+                                <input type="number" class="form-control" id="max_price" name="max_price" placeholder="Max" value="{{ request('max_price') }}">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="sort" class="form-label">Trier par</label>
+                                <select class="form-select" id="sort" name="sort">
+                                    <option value="date_desc" {{ request('sort') == 'date_desc' ? 'selected' : '' }}>Date (récent d'abord)</option>
+                                    <option value="date_asc" {{ request('sort') == 'date_asc' ? 'selected' : '' }}>Date (ancien d'abord)</option>
+                                    <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Prix (croissant)</option>
+                                    <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Prix (décroissant)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-1 d-flex align-items-end mb-3">
+                                <button type="submit" class="btn btn-primary w-100">Filtrer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
