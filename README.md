@@ -141,3 +141,4 @@ Después abrí `http://localhost:8000`. Registrate para publicar un anuncio, con
 PHP 8.2+, Laravel 12, Blade, Bootstrap 5, SQLite (por defecto) / MySQL, Vite.
 
 </details>
+
